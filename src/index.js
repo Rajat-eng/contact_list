@@ -3,15 +3,40 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { ToastContainer, toast } from 'react-toastify';
+import { BrowserRouter as Router, } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
+import {createStore} from 'redux';
+import {Provider } from 'react-redux';
+import { contactReducer } from './redux/reducers';
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+
+const store=createStore(contactReducer,composeWithDevTools());
+
+export const notifySuccess=(message)=>{
+  toast.success(message,{
+    position:'top-right'
+  });
+}
+
+export const notifyError=(message)=>{
+  toast.error(message,{
+    position:'top-right'
+  });
+}
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router>
+          <App />
+      </Router>
+      <ToastContainer />
+    </Provider>
+    
   </React.StrictMode>
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
 reportWebVitals();

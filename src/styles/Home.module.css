@@ -1,0 +1,45 @@
+*{
+    text-align: center;
+    position: relative;
+}
+
+.table_container{
+    margin-top: 40px;
+}
+
+    table {
+    border: 2px solid forestgreen;
+    width: 800px;
+    height: 200px;
+    margin: auto;
+    
+    }
+    
+    th {
+    border-bottom: 1px solid black;
+    }
+    
+    td {
+    text-align: center;
+    }
+
+.delBtn{
+    background-color: red;
+    margin-right: 5px;
+}
+
+.editBtn{
+    background-color: rgb(194, 194, 242);
+}
+.addBtn_container{
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 800px;
+    margin-top: 10px;
+}
+.addBtn{
+    background-color: pink;
+    font-size: 1.5rem;
+   
+}
+    
